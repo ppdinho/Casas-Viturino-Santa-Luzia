@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="ChatGPT Image 17 de abr. de 2025, 20_25_14.png">
-
     <title>Ferramentas pelo Melhor Preço</title>
     <style>
         /* Resetações básicas */
@@ -22,16 +21,19 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
+            flex-wrap: wrap;
         }
 
         header .logo {
             display: flex;
             align-items: center;
+            margin-right: 15px;
         }
 
         header .menu {
             display: flex;
             gap: 10px;
+            margin: 10px 0;
         }
 
         header .menu a {
@@ -40,6 +42,7 @@
             padding: 5px 10px;
             border: 1px solid white;
             border-radius: 5px;
+            white-space: nowrap;
         }
 
         header .menu a:hover {
@@ -47,22 +50,33 @@
             color: red;
         }
 
-        header .search-bar {
+        header .search-container {
             display: flex;
             align-items: center;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 300px;
         }
 
-        header .search-bar input {
-            padding: 5px;
+        header .search-container input {
+            padding: 8px;
             font-size: 1rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            width: 100%;
         }
 
-        header .search-bar button {
-            padding: 5px;
+        header .search-container button {
+            padding: 8px 12px;
             background-color: white;
             color: red;
             border: none;
+            border-radius: 0 4px 4px 0;
             cursor: pointer;
+        }
+
+        header .search-container button:hover {
+            background-color: #f0f0f0;
         }
 
         /* Hero section */
@@ -81,7 +95,7 @@
         /* Destaques */
         .destaques {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 15px;
             padding: 20px;
         }
@@ -91,11 +105,23 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 10px;
+            transition: transform 0.3s;
+        }
+
+        .produto:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .produto img {
             max-width: 100%;
+            height: auto;
             border-radius: 5px;
+        }
+
+        .produto p {
+            margin: 10px 0 0;
+            font-weight: bold;
         }
 
         /* Rodapé */
@@ -104,17 +130,54 @@
             color: white;
             text-align: center;
             padding: 10px 0;
+            margin-top: 20px;
         }
 
         /* Responsividade */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
+            }
+
+            header .logo {
+                margin-bottom: 10px;
+                justify-content: center;
+            }
+
+            header .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            header .search-container {
+                max-width: 100%;
+                margin: 10px auto;
             }
 
             .hero {
-                padding: 10px;
+                padding: 15px 10px;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .destaques {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 10px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header .menu a {
+                font-size: 0.9rem;
+                padding: 4px 8px;
+            }
+
+            .destaques {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
         }
     </style>
@@ -127,11 +190,16 @@
             <h1>Casa viturino</h1>
         </div>
         <div class="menu">
-            <a href="index.html">Demasiados</a>
+            <a href="ferramentas.html">Casa</a>
+            <a href="tintas.html">Para Tintas</a>
             <a href="ferramentas.html">Ferramentas</a>
-       
+            <a href="index.html">Geral</a>
+            <a href="carros.html">Automóveis</a>
         </div>
-       
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Pesquisar produtos...">
+            <button onclick="searchItems()">Buscar</button>
+        </div>
     </header>
 
     <!-- Hero -->
@@ -143,510 +211,473 @@
     <!-- Destaques -->
     <section class="destaques">
         <div class="produto">
-            <a href="Massa-Corrida-PVA-25kg-Suvinil-95165.png"><img src="Massa-Corrida-PVA-25kg-Suvinil-95165.png"g alt="Produto 1"></a>
+            <a href="Massa-Corrida-PVA-25kg-Suvinil-95165.png"><img src="Massa-Corrida-PVA-25kg-Suvinil-95165.png" alt="Massa Corrida Suvinil"></a>
             <p>Massa Corrida Suvinil</p>
-       
         </div>
         <div class="produto">
-            <a href="plafon_pv_branco_com_bocal_de_porcelana_1x_e27_blumenau_iluminacao_753_1_b890f15b4d8f9ea8cd5e629ab3f69087 1.png"><img src="plafon_pv_branco_com_bocal_de_porcelana_1x_e27_blumenau_iluminacao_753_1_b890f15b4d8f9ea8cd5e629ab3f69087 1.png" alt="Produto 2"></a>
+            <a href="plafon_pv_branco_com_bocal_de_porcelana_1x_e27_blumenau_iluminacao_753_1_b890f15b4d8f9ea8cd5e629ab3f69087 1.png"><img src="plafon_pv_branco_com_bocal_de_porcelana_1x_e27_blumenau_iluminacao_753_1_b890f15b4d8f9ea8cd5e629ab3f69087 1.png" alt="Paflon"></a>
             <p>Paflon</p>
-       
         </div>
         <div class="produto">
-            <a href="Espacador-Nivelador-20mm-Verde-Cortag---102620 1.png"><img src="Espacador-Nivelador-20mm-Verde-Cortag---102620 1.png" alt="Produto 3"></a>
+            <a href="Espacador-Nivelador-20mm-Verde-Cortag---102620 1.png"><img src="Espacador-Nivelador-20mm-Verde-Cortag---102620 1.png" alt="Espacador De Revestimento"></a>
             <p>Espacador De Revestimento</p>
-          
         </div>
         <div class="produto">
-            <a href="torneira-bica-movel-1168.png"><img src="torneira-bica-movel-1168.png" alt="Produto 3"></a>
+            <a href="torneira-bica-movel-1168.png"><img src="torneira-bica-movel-1168.png" alt="Torneira Bica Móvel"></a>
             <p>Torneira Bica Móvel</p>
-     
         </div>
         <div class="produto">
-            <a href="tinta_spray_uso_geral_branco_brilhante_400ml_chemicolor_1797115_1_20170621173058.webp"><img src="tinta_spray_uso_geral_branco_brilhante_400ml_chemicolor_1797115_1_20170621173058.webp" alt="Produto 3"></a>
+            <a href="tinta_spray_uso_geral_branco_brilhante_400ml_chemicolor_1797115_1_20170621173058.webp"><img src="tinta_spray_uso_geral_branco_brilhante_400ml_chemicolor_1797115_1_20170621173058.webp" alt="Tinta Acrilica Interior"></a>
             <p>Tinta Acrilica Interior</p>
-           
         </div>
-
-
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="silicone-spray-car-80-300ml-lubrifica-protege-e-da-brilho-635804d2c121b.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="silicone-spray-car-80-300ml-lubrifica-protege-e-da-brilho-635804d2c121b.jpg" alt="Silicone Spray CAR 80"></a>
             <p>Silicone Spray CAR 80</p>
-           
         </div>
-
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images.jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images.jfif" alt="Loctite Durepoxi"></a>
             <p>Loctite Durepoxi</p>
-           
         </div>
-
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Coral-Rende-Muito-Galao-Cores.png" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Coral-Rende-Muito-Galao-Cores.png" alt="Tinta Coral"></a>
             <p>Tinta Coral</p>
-           
         </div>
-        
-
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (1).jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (1).jfif" alt="Removedor Maxi Rubber"></a>
             <p>Removedor Maxi Rubber</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="colorgin-metalik-cromado-51-554626-1.png" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="colorgin-metalik-cromado-51-554626-1.png" alt="Tinta para Efeitos metalicos ColorGin"></a>
             <p>Tinta para Efeitos metalicos ColorGin</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="espuma-expansiva-adesivo-poliuretano-pu-480g-500ml-tekbond-saint-gobain-21101006100.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="espuma-expansiva-adesivo-poliuretano-pu-480g-500ml-tekbond-saint-gobain-21101006100.jpg" alt="Espuma Expansiva Qualitex"></a>
             <p>Espuma Expansiva Qualitex</p>
         </div>
-       
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="65cf7f99eddcf.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="65cf7f99eddcf.jpg" alt="Cola Super Bonder"></a>
             <p>Cola Super Bonder</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="tinta_spray_uso_geral_eco_bartofil_preto_fosco_400ml_831_2_f084c4ebdc061b3d3ec064d2bb343e12.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="tinta_spray_uso_geral_eco_bartofil_preto_fosco_400ml_831_2_f084c4ebdc061b3d3ec064d2bb343e12.webp" alt="Tinta Spray Eco"></a>
             <p>Tinta Spray Eco</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="tinta_spray_uso_geral_branco_brilhante_400ml_chemicolor_1797115_1_20170621173058.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="tinta_spray_uso_geral_branco_brilhante_400ml_chemicolor_1797115_1_20170621173058.webp" alt="Tinta Spray Uso Geral"></a>
             <p>Tinta Spray Uso Geral</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="cola.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="cola.webp" alt="Cola Para Madeira"></a>
             <p>Cola Para Madeira</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Solvente-max-ed-900ml.png" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Solvente-max-ed-900ml.png" alt="Solvente para tintas"></a>
             <p>Solvente para tintas</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Thinner-Premium-9116-900ml-Eucatex.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Thinner-Premium-9116-900ml-Eucatex.webp" alt="thinner premium"></a>
             <p>thinner premium</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="diluente-premium-900-ml.png" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="diluente-premium-900-ml.png" alt="Diluente Premium"></a>
             <p>Diluente Premium</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="graxa.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="graxa.webp" alt="Graxa para uso geral"></a>
             <p>Graxa para uso geral</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_NQ_NP_735685-MLB72432443579_102023-O.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_NQ_NP_735685-MLB72432443579_102023-O.webp" alt="Trava roscas"></a>
             <p>Trava roscas</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="cera.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="cera.webp" alt="Cera pasta polidora"></a>
             <p>Cera pasta polidora</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="TODOS-OS-PRODUTOS-KELLDRIN-2020-1800x1800px-01-48.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="TODOS-OS-PRODUTOS-KELLDRIN-2020-1800x1800px-01-48.jpg" alt="Graxa para uso geral"></a>
             <p>Graxa para uso geral</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="merda.jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="merda.jfif" alt="Anti Ferrugem auto lubrificante"></a>
             <p>Anti Ferrugem auto lubrificante</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="oleo-desengripante-lubrificante-spray-chemicolor-300ml-140g-1.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="oleo-desengripante-lubrificante-spray-chemicolor-300ml-140g-1.jpg" alt="Desengripante Color Club"></a>
             <p>Desengripante Color Club</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="graxa.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="graxa.webp" alt="Graxa para uso geral"></a>
             <p>Graxa para uso geral</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="metak.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="metak.webp" alt="Tinta spray metálica"></a>
             <p>Tinta spray metálica</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (2).jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (2).jfif" alt="Removedor de pintura"></a>
             <p>Removedor de pintura</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="uni05120194-gzrknihhy6.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="uni05120194-gzrknihhy6.webp" alt="Adesivo de poliuretano para parabrisa"></a>
             <p>Adesivo de poliuretano para parabrisa</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="f07f0237e07ed666e292c3fd8bf4400b.jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="f07f0237e07ed666e292c3fd8bf4400b.jfif" alt="Tinta spray uso geral verde escuro"></a>
             <p>Tinta spray uso geral verde escuro</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="TINTA-SPRAY-USO-GERAL-CHEMICOLOR-400ML-250G-VERDE-ESCURO.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="TINTA-SPRAY-USO-GERAL-CHEMICOLOR-400ML-250G-VERDE-ESCURO.webp" alt="Tinta spray uso Laranja"></a>
             <p>Tinta spray uso Laranja</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="tinta_spray_chemicolor_uso_geral_laranja_400ml_132_1566912297_e2cb_600x600.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="tinta_spray_chemicolor_uso_geral_laranja_400ml_132_1566912297_e2cb_600x600.jpg" alt="Tinta spray uso geral verde claro"></a>
             <p>Tinta spray uso geral verde claro</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="TINTA-SPRAY-CHEMICOLOR-400ML-250G-AMARELO.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="TINTA-SPRAY-CHEMICOLOR-400ML-250G-AMARELO.webp" alt="Tinta spray uso geral amrelo"></a>
             <p>Tinta spray uso geral amrelo</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="color.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="color.webp" alt="Tinta spray uso geral violeta escuro"></a>
             <p>Tinta spray uso geral violeta escuro</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Spray-Uso-Geral-Violeta-Claro-400ml.png" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Spray-Uso-Geral-Violeta-Claro-400ml.png" alt="Tinta spray uso geral violeta claro"></a>
             <p>Tinta spray uso geral violeta claro</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (6).jfif" alt="Produto 3"></a>
-            <p>Seladora extra</p>
-        </div>
-      
-        <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (7).jfif" alt="Produto 3"></a>
-            <p>Seladora extra</p>
-        </div>
-
-        <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="verniz_copal_premium_madeira_brilho_total_3_6l_eucatex_3649_1_7009197ef7d81d53130d1a1e2729efe6.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (6).jfif" alt="Seladora extra"></a>
             <p>Seladora extra</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="WEnWTCBnm2kDLoyUL6oT5Y5ossbGg8j0Mhq1xq5X.jpeg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (7).jfif" alt="Seladora extra"></a>
+            <p>Seladora extra</p>
+        </div>
+        <div class="produto">
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="verniz_copal_premium_madeira_brilho_total_3_6l_eucatex_3649_1_7009197ef7d81d53130d1a1e2729efe6.webp" alt="Seladora extra"></a>
+            <p>Seladora extra</p>
+        </div>
+        <div class="produto">
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="WEnWTCBnm2kDLoyUL6oT5Y5ossbGg8j0Mhq1xq5X.jpeg" alt="Estribos"></a>
             <p>Estribos</p>
         </div>
-      
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="espuma.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="espuma.jpg" alt="Espuma de espatula para rejunte 18 unidades"></a>
             <p>Espuma de espatula para rejunte 18 unidades</p>
         </div>
-
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_NQ_NP_771181-MLU72861932553_112023-O.webp" alt="Produto 3"></a>
-            <p>Fita metrica Sparta</p>
-        </div>
-
-        <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_NQ_NP_771181-MLU72861932553_112023-O.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_NQ_NP_771181-MLU72861932553_112023-O.webp" alt="Fita metrica Sparta"></a>
             <p>Fita metrica Sparta</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="trena_metrica_10_3_metros_lufkin_423_2_888ff8f6f67b9f7e67f859f6029d469e.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="trena_metrica_10_3_metros_lufkin_423_2_888ff8f6f67b9f7e67f859f6029d469e.webp" alt="Trena metrica Lufkin"></a>
             <p>Trena metrica Lufkin</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="desentupidor_de_pia_sanfonado_dsr_6873_1_2dafd7b034f67cecc5b277237784f54a.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="desentupidor_de_pia_sanfonado_dsr_6873_1_2dafd7b034f67cecc5b277237784f54a.webp" alt="Desentupidor"></a>
             <p>Desentupidor</p>
         </div>
- 
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="lb_0047_plaina-no4-05-qsi0s31fej.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="lb_0047_plaina-no4-05-qsi0s31fej.webp" alt="Plaina Manual de Madeira"></a>
             <p>Plaina Manual de Madeira</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Chave-Combinada-24-mm-mayle-crescent-102021my1.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Chave-Combinada-24-mm-mayle-crescent-102021my1.webp" alt="Chave Combinada"></a>
             <p>Chave Combinada</p>
         </div>
-       
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Chave-Biela-Gedore-ant-ferramentas.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Chave-Biela-Gedore-ant-ferramentas.webp" alt="Plaina Manual de Madeira"></a>
             <p>Plaina Manual de Madeira</p>
         </div>
-
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="ProdutoDestaque_1201_orig.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="ProdutoDestaque_1201_orig.jpg" alt="Plaina Manual de Madeira"></a>
             <p>Plaina Manual de Madeira</p>
         </div>
-
-        
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (8).jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (8).jfif" alt="Linha de Pedreiro"></a>
             <p>Linha de Pedreiro</p>
         </div>
-
-        
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_618909-MLB54339183366_032023-O.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_618909-MLB54339183366_032023-O.jpg" alt="Selante a base"></a>
             <p>Selante a base</p>
         </div>
-
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="garrafao_termico_pro_5L_vermelho_velvet4.png" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="garrafao_termico_pro_5L_vermelho_velvet4.png" alt="Garrafão Térmico 5L"></a>
             <p>Garrafão Térmico 5L</p>
         </div>
-
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="vassoura.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="vassoura.webp" alt="Vassoura"></a>
             <p>Vassoura</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="argamassa_colante_acii_saco_de_20kg_br_massa_89229784_0001_300x300.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="argamassa_colante_acii_saco_de_20kg_br_massa_89229784_0001_300x300.jpg" alt="Argamassa colante interno"></a>
             <p>Argamassa colante interno</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="marreta.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="marreta.webp" alt="Marreta tenace"></a>
             <p>Marreta tenace</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (9).jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (9).jfif" alt="Marreta tenace"></a>
             <p>Marreta tenace</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="f962eca286c5a18c9ac129ef4eef4ca6.jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="f962eca286c5a18c9ac129ef4eef4ca6.jfif" alt="Rodo de mão"></a>
             <p>Rodo de mão</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="sifao-sanfonado-plastico-universal-branco-112-blukit.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="sifao-sanfonado-plastico-universal-branco-112-blukit.webp" alt="Sifão BluKit para pias, tanques e lavatorios"></a>
             <p>Sifão BluKit para pias, tanques e lavatorios</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="imagem_2023-07-29_103336864-r42mduak37.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="imagem_2023-07-29_103336864-r42mduak37.webp" alt="Arame Galvazinado"></a>
             <p>Arame Galvazinado</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="engate_flexivel_mangueira_torneira_40cm_metal_trancado_499_1_f16d2e19825f5ad2818ee4b8bde91bc3.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="engate_flexivel_mangueira_torneira_40cm_metal_trancado_499_1_f16d2e19825f5ad2818ee4b8bde91bc3.webp" alt="Flexivel Metalico"></a>
             <p>Flexivel Metalico</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="vd.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="vd.jpg" alt="Espaçador Nivelador de Revestimento"></a>
             <p>Espaçador Nivelador de Revestimento</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="br-11134207-7qukw-li43qfligkfzf8.jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="br-11134207-7qukw-li43qfligkfzf8.jfif" alt="Assento Sanitario"></a>
             <p>Assento Sanitario</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Resistencia-para-chuveiro-220V-Evidence-Fame.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Resistencia-para-chuveiro-220V-Evidence-Fame.webp" alt="Resistencia para chuveiro"></a>
             <p>Resistencia para chuveiro</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="abracadeira_nylon_370x4_8mm_cor_preta_pacote_50un_9073_1_20200916101152.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="abracadeira_nylon_370x4_8mm_cor_preta_pacote_50un_9073_1_20200916101152.webp" alt="Abraçadeira Plástica"></a>
             <p>Abraçadeira Plástica</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (10).jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (10).jfif" alt="Placa para interruptor"></a>
             <p>Placa para interruptor</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (11).jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (11).jfif" alt="Sensor de presença"></a>
             <p>Sensor de presença</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="anel.jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="anel.jfif" alt="Anel de vedação"></a>
             <p>Anel de vedação</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Ralo.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Ralo.jpg" alt="Ralo de pia"></a>
             <p>Ralo de pia</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="para.jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="para.jfif" alt="Parafuso com rosca paralela"></a>
             <p>Parafuso com rosca paralela</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="parafuso-allen-din-7380-abaulada-inox-304-mm_1_1634948690.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="parafuso-allen-din-7380-abaulada-inox-304-mm_1_1634948690.webp" alt="Parafuso Allen"></a>
             <p>Parafuso Allen</p>
         </div>
-        
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="parafuso-auto-atarraxante-chata-phillips-inox-304-4-2-x-50-sku41572.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="parafuso-auto-atarraxante-chata-phillips-inox-304-4-2-x-50-sku41572.webp" alt="Parafuso Autoatarraxante"></a>
             <p>Parafuso Autoatarraxante</p>
         </div>
-
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="mad.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="mad.webp" alt="Parafuso para Madeira"></a>
             <p>Parafuso para Madeira</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Kit-com-6-Porcas-Sextavadas-12x34-Pol--bemfixa-81471.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Kit-com-6-Porcas-Sextavadas-12x34-Pol--bemfixa-81471.webp" alt="Porca Sextavada"></a>
             <p>Porca Sextavada</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="porca-autotravante-300x285.png" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="porca-autotravante-300x285.png" alt="Porca auto travante"></a>
             <p>Porca auto travante</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="jogo-chave-torx-tipo-canivete-zebra-com-8-pecas-7494618-1677873882387.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="jogo-chave-torx-tipo-canivete-zebra-com-8-pecas-7494618-1677873882387.jpg" alt="Jogo de chaves tipo canivete"></a>
             <p>Jogo de chaves tipo canivete</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="jogoc.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="jogoc.webp" alt="Jogo Extrator com 5 peças"></a>
             <p>Jogo Extrator com 5 peças</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="fio.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="fio.jpg" alt="Fio de Nylon Redondo"></a>
             <p>Fio de Nylon Redondo</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="broca_chata_para_madeira_3_4_1_pcs_53697_1_92766823ff2777f1c628b2675617fab6.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="broca_chata_para_madeira_3_4_1_pcs_53697_1_92766823ff2777f1c628b2675617fab6.webp" alt="Broca chata para madeiras"></a>
             <p>Broca chata para madeiras</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (12).jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (12).jfif" alt="Jogo serra copo - 6 peças"></a>
             <p>Jogo serra copo - 6 peças</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="caixa.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="caixa.webp" alt="Caixa de aterramento"></a>
             <p>Caixa de aterramento</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="escada.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="escada.webp" alt="Escada de alumínio"></a>
             <p>Escada de alumínio</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="15803_varal-de-chao-lugano-black-com-abas-secalux_m1_637915998091729304.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="15803_varal-de-chao-lugano-black-com-abas-secalux_m1_637915998091729304.webp" alt="Varal de chão"></a>
             <p>Varal de chão</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_NQ_NP_735068-MLB49079126554_022022-O.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_NQ_NP_735068-MLB49079126554_022022-O.webp" alt="Torneira de Luxo HIDROCAMPO"></a>
             <p>Torneira de Luxo HIDROCAMPO</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Acessorio.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Acessorio.webp" alt="Acessório para banheiro"></a>
             <p>Acessório para banheiro</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (13).jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (13).jfif" alt="Tubo Extensível Multi Uso"></a>
             <p>Tubo Extensível Multi Uso</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="cinto.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="cinto.jpg" alt="Cinto Ergonômico"></a>
             <p>Cinto Ergonômico</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_NQ_NP_748521-MLB77243057249_062024-O.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_NQ_NP_748521-MLB77243057249_062024-O.webp" alt="Chave Multifuncional"></a>
             <p>Chave Multifuncional</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="pa_bico_c_cabo_n_4_3599_1_a26bfbc963e7163a000ae4d71907e6ad.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="pa_bico_c_cabo_n_4_3599_1_a26bfbc963e7163a000ae4d71907e6ad.webp" alt="Pá"></a>
             <p>Pá</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Cadeado-para-Moto-Vonder-1mPosterior2.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Cadeado-para-Moto-Vonder-1mPosterior2.webp" alt="Cadeado para moto"></a>
             <p>Cadeado para moto</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Saida-Aspersor-ES.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Saida-Aspersor-ES.webp" alt="Aspersor 50para irrigação"></a>
             <p>Aspersor 50para irrigação</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="ventosa-dupla-vonder.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="ventosa-dupla-vonder.webp" alt="Ventosa Thompson para vidros"></a>
             <p>Ventosa Thompson para vidros</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="cortador_de_vidro_brasfort_a_oleo_profissional_1570354499_1641_300x300.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="cortador_de_vidro_brasfort_a_oleo_profissional_1570354499_1641_300x300.jpg" alt="Cortador de vidro Brasfort"></a>
             <p>Cortador de vidro Brasfort</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="br-11134207-7qukw-libxqyt2c03j4e.jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="br-11134207-7qukw-libxqyt2c03j4e.jfif" alt="KIT COM 2 PEÇAS MANANCIAL"></a>
             <p>KIT COM 2 PEÇAS MANANCIAL</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="lanterna.jpg" alt="Produto 3"></a>
-            <p>lanterna de Led </p>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="lanterna.jpg" alt="lanterna de Led"></a>
+            <p>lanterna de Led</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="LUVA.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="LUVA.jpg" alt="Luva de borracha"></a>
             <p>Luva de borracha</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (14).jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (14).jfif" alt="Disco de lixa"></a>
             <p>Disco de lixa</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="TODOS-OS-PRODUTOS-KELLDRIN-2020-1800x1800px-01-51.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="TODOS-OS-PRODUTOS-KELLDRIN-2020-1800x1800px-01-51.jpg" alt="Cola Rato Kellmat"></a>
             <p>Cola Rato Kellmat</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="quadro_centro_distribuicao_6_8_mondiale_8605_1_44d54539311d2399c38e0a9dedaea785_20221207105144.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="quadro_centro_distribuicao_6_8_mondiale_8605_1_44d54539311d2399c38e0a9dedaea785_20221207105144.webp" alt="Quadro de distribuição Mondiale"></a>
             <p>Quadro de distribuição Mondiale</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Porta.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Porta.webp" alt="Porta Shampoo Réto"></a>
             <p>Porta Shampoo Réto</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Martelo-de-Borracha-600g-com-Cabo-de-Mad-kingtony-7848-601.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Martelo-de-Borracha-600g-com-Cabo-de-Mad-kingtony-7848-601.webp" alt="Martelo de borracha"></a>
             <p>Martelo de borracha</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="kit-com-ferragens-para-porta-balcao-de-abrir-abrir-de-madeira-39526-0-DB6456.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="kit-com-ferragens-para-porta-balcao-de-abrir-abrir-de-madeira-39526-0-DB6456.jpg" alt="Ferragens para porta"></a>
             <p>Ferragens para porta</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="180_condor_kit_pintura_3_pecas_8093_10211_1_9d4c2a5936f5e4ca882cae30f53a23bc.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="180_condor_kit_pintura_3_pecas_8093_10211_1_9d4c2a5936f5e4ca882cae30f53a23bc.webp" alt="Kit pintura 3 peças"></a>
             <p>Kit pintura 3 peças</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="83691_20191009110013_thumb_Soda_Caustica_Escorpiao_1kg.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="83691_20191009110013_thumb_Soda_Caustica_Escorpiao_1kg.webp" alt="Soda cáustica Escorpião"></a>
             <p>Soda cáustica Escorpião</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="tv.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="tv.webp" alt="Tv digital Aquário"></a>
             <p>Tv digital Aquário</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Lampada-led-100w-ultraluz-1.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="Lampada-led-100w-ultraluz-1.webp" alt="Lampada Led ultra led 50w"></a>
             <p>Lampada Led ultra led 50w</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="limpa.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="limpa.webp" alt="Limpa Pneus"></a>
             <p>Limpa Pneus</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="la.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="la.webp" alt="Lubrificante Multiviscoso Premium"></a>
             <p>Lubrificante Multiviscoso Premium</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="s-competicao-15w40-1l-1-5215bbfe70034c684217418774611857-480-0.png" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="s-competicao-15w40-1l-1-5215bbfe70034c684217418774611857-480-0.png" alt="Falke Lubrificante"></a>
             <p>Falke Lubrificante</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="61nX8ZsQMaL._AC_UF894,1000_QL80_.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="61nX8ZsQMaL._AC_UF894,1000_QL80_.jpg" alt="caixa de correio"></a>
             <p>caixa de correio</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="marjayfix.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="marjayfix.jpg" alt="Marjay Fix Ipermeabilizante"></a>
             <p>Marjay Fix Ipermeabilizante</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="fix.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="fix.webp" alt="Reparador de peças plásticas"></a>
             <p>Reparador de peças plásticas</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (15).jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="images (15).jfif" alt="Estilete"></a>
             <p>Estilete</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="1-40621-91003_zoom.jpg" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="1-40621-91003_zoom.jpg" alt="Antena Digital Portátil"></a>
             <p>Antena Digital Portátil</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="br-11134207-23030-kmruqnbufhov2b.jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="br-11134207-23030-kmruqnbufhov2b.jfif" alt="Suporte Universal para TV"></a>
             <p>Suporte Universal para TV</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_NQ_NP_637480-MLU77735821951_072024-O.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="D_NQ_NP_637480-MLU77735821951_072024-O.webp" alt="Rola de lã"></a>
             <p>Rola de lã</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="disco_diamantado_turbo_seco_4_diamante_1010800_1_20160607124152_20160719121427.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="disco_diamantado_turbo_seco_4_diamante_1010800_1_20160607124152_20160719121427.webp" alt="Disco de Diamante"></a>
             <p>Disco de Diamante</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="fita-dupla-face-transparente-aderemax-permanente-adere-1.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="fita-dupla-face-transparente-aderemax-permanente-adere-1.webp" alt="Fita Forte Ambiente Interno"></a>
             <p>Fita Forte Ambiente Interno</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="prendedores@mobile.png" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="prendedores@mobile.png" alt="Kit de prendedores"></a>
             <p>Kit de prendedores</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="metro_abs_2mt_10_dobras_5581_lotus_256659_1_1d05b8db28d68088b7c33620ea1dc603.webp" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="metro_abs_2mt_10_dobras_5581_lotus_256659_1_1d05b8db28d68088b7c33620ea1dc603.webp" alt="Régua 2 metros"></a>
             <p>Régua 2 metros</p>
         </div>
         <div class="produto">
-            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="nivel.jfif" alt="Produto 3"></a>
+            <a href="https://api.whatsapp.com/send/?phone=553175581596&text&type=phone_number&app_absent=0"><img src="nivel.jfif" alt="Nivel com bolha horizontal"></a>
             <p>Nivel com bolha horizontal</p>
         </div>
-    </div>
-
     </section>
 
     <!-- Rodapé -->
@@ -655,12 +686,44 @@
     </footer>
 
     <script>
-      function searchItems() {
-    const searchInput = document.getElementById('search').value;
-    const baseUrl = "pagina-de-busca.html"; // Substitua pela URL da página de resultados
-    window.location.href = `${baseUrl}?q=${encodeURIComponent(searchInput)}`;
-}
+        function searchItems() {
+            const searchInput = document.getElementById('search').value.trim().toLowerCase();
+            if (searchInput) {
+                const products = document.querySelectorAll('.produto');
+                let found = false;
+                
+                products.forEach(product => {
+                    const productName = product.querySelector('p').textContent.toLowerCase();
+                    if (productName.includes(searchInput)) {
+                        product.style.display = 'block';
+                        found = true;
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+                
+                if (!found) {
+                    alert('Nenhum produto encontrado com esse nome.');
+                    // Mostrar todos os produtos novamente
+                    products.forEach(product => {
+                        product.style.display = 'block';
+                    });
+                }
+            } else {
+                // Se o campo estiver vazio, mostrar todos os produtos
+                const products = document.querySelectorAll('.produto');
+                products.forEach(product => {
+                    product.style.display = 'block';
+                });
+            }
+        }
 
+        // Permite buscar pressionando Enter no campo de pesquisa
+        document.getElementById('search').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchItems();
+            }
+        });
     </script>
 
 </body>
